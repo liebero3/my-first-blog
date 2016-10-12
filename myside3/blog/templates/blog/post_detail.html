@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+	<!-- *****************************************************************************************************************
+	 BLOG CONTENT
+	 ***************************************************************************************************************** -->
+
+	 <div class="container mtb">
+		<div class="row">
+			<!-- SIDEBAR -->
+			<div class="col-lg-4 col-lg-push-8">
+				<h4>Search</h4>
+				<div class="hline"></div>
+				<p>
+					<br/>
+					<input type="text" class="form-control" placeholder="Search something">
+				</p>
+				<!--		<div class="spacing"></div> -->
+
+			</div>
+
+	 <! -- BLOG POSTS LIST -->
+			<div class="col-lg-8 col-lg-pull-4">
+				{% for single_posts in single_post %}
+				<p><img class="img-rounded" display: block max-width: 100% height: auto  src={{ single_posts.mainpict.url }}></p>
+				<a href="single-post.html"><h3 class="ctitle">{{ single_posts.title }}</h3></a>
+				<p>
+					{{ single_posts.text|safe }}
+				</p>
+				{% endfor %}
+			</div><!--/col-lg-8 -->
+				
+	 	</div><!--/row -->
+	 </div><!--/container -->
+
+
+{% endblock %}

@@ -16,5 +16,10 @@ def post_list(request):
     posts = Post.objects.filter(pdate__lte=timezone.now())#.order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+def post_detail(request, digit):
+    single_post = Post.objects.filter(id=digit)
+    print(single_post)
+    return render(request, 'blog/post_detail.html', {'single_post': single_post})
+
 def show_homepage(request):
     return render(request, 'blog/index.html')
