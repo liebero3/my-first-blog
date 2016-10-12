@@ -13,5 +13,8 @@ from django.contrib.auth.models import Group
 # Create your views here.
 #@user_passes_test(lambda u: Group.objects.get(name='EFPHGK2') in u.groups.all())
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(pdate__lte=timezone.now())#.order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
+
+def show_homepage(request):
+    return render(request, 'blog/index.html')
