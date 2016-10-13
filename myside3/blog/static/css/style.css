@@ -209,17 +209,25 @@ a:focus {
 	min-height: 550px;
 	padding-top: 100px;
 	padding-bottom: 0px;
-	text-align: center;
 }
 
-#headerwrap h3, h5 {
+#headerwrap h3 {
 	color: white;
 	font-weight: 400;
+	text-align: center;
+
+}
+
+#headerwrap h5 {
+	color: white;
+	font-weight: 400;
+	text-align: justify;
 }
 
 #headerwrap h1 {
 	color: white;
 	margin-bottom: 25px;
+	text-align: center;
 }
 
 #headerwrap .img-responsive {

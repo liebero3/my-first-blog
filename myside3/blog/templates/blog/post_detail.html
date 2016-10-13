@@ -24,7 +24,7 @@
 			<div class="col-lg-8 col-lg-pull-4">
 				{% for single_posts in single_post %}
 				<p><img class="img-rounded" display: block max-width: 100% height: auto  src={{ single_posts.mainpict.url }}></p>
-				<a href="single-post.html"><h3 class="ctitle">{{ single_posts.title }}</h3></a>
+				<h3 class="ctitle">{{ single_posts.title }}</h3>
 				<p>
 					{{ single_posts.text|safe }}
 				</p>

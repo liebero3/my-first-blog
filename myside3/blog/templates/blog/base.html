@@ -32,11 +32,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-	  <a class="navbar-brand" href="/index/">TILL LIEBER</a>
+	  <a class="navbar-brand" href={% url 'blog:index' %}>TILL LIEBER</a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-		  <li><a href="/blog/">EFGK2PH</a></li>
+		  <li><a href={% url 'blog:post_list' %}>EFGK2PH</a></li>
 		  <li><a href={{ blog }}>8aPH</a></li>
 		  <li><a href={{ blog }}>8bPH</a></li>
 		  <li><a href={{ blog }}>9cM</a></li>
@@ -69,17 +69,16 @@
 		 		<div class="col-lg-4">
 		 			<h4>About</h4>
 		 			<div class="hline-w"></div>
-		 			<p>Auf dieser Seite wird zusätzliches Unterrichtsmaterial veröffentlicht. Um dieses einsehen zu können ist es erforderlich, dass man einen aktiven, für den gewünschten Kurs freigeschalteten Benutzeraccount besitzt. Dieser wurde im Unterricht verteilt, sollten die Zugangsdaten vergessen worden sein, muss dies im Unterricht mitgeteilt werden.</p>
+                    <p>
+                        Die in den jewweiligen blogs verfassten Beiträge ersetzen in keiner Weise die im Unterricht zu
+                        tätigen Mitschriften. Es sind nur grobe Zusammenfassungen oder zusätzliche, nicht
+                        unterrichtsrelevante Informationen.
+                    </p>
 		 		</div>
 		 		
 				<div class="col-lg-4">
-		 			<h4>Meine Anschrift</h4>
+		 			<h4>Kontakt/Disclaimer</h4>
 		 			<div class="hline-w"></div>
-		 			<p>
-		 				Myliusstraße 7,<br/>
-		 				50823 Köln,<br/>
-		 				Deutschland.<br/>
-		 			</p>
 		 		</div>
 		 	
 		 	</div><!--/row -->
