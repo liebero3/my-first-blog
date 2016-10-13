@@ -37,10 +37,10 @@
 			
 				{% for post in posts %}
 				<p><img class="img-rounded" display: block max-width: 100% height: auto  src={{ post.mainpict.url }}></p>
-				<a href={% url 'post_detail' post.id %}><h3 class="ctitle">{{ post.title }}</h3></a>
+				<a href={% url 'blog:post_detail' post.id %}><h3 class="ctitle">{{ post.title }}</h3></a>
 				<p><csmall>{{ post.pdate }}</csmall> | <csmall2>{{ post.author }}</csmall2></p>
 				{{ post.text|safe }} 
-				<p><a href={% url 'post_detail' post.id %}>[Read More]</a></p>
+				<p><a href={% url 'blog:post_detail' post.id %}>[Read More]</a></p>
 				<div class="hline"></div>
 				<div class="spacing"></div>
 				{% endfor %}

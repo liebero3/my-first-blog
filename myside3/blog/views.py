@@ -39,7 +39,6 @@ def login_user(request):
 
         user = authenticate(username=username, password=password)
         if user is not None:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect('blog/post_list.html')
-    return render('login.html', context_instance=RequestContext(request))
+            login(request, user)
+            return HttpResponseRedirect('..')
+    return render(request, 'blog/login.html')
