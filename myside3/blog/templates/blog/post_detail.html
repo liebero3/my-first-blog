@@ -1,7 +1,5 @@
 {% extends 'blog/base.html' %}
-
 {% block content %}
-
 	<!-- *****************************************************************************************************************
 	 BLOG CONTENT
 	 ***************************************************************************************************************** -->
@@ -22,17 +20,24 @@
 
 	 <! -- BLOG POSTS LIST -->
 			<div class="col-lg-8 col-lg-pull-4">
-				{% for single_posts in single_post %}
-				<p><img class="img-rounded" display: block max-width: 100% height: auto  src={{ single_posts.mainpict.url }}></p>
-				<h3 class="ctitle">{{ single_posts.title }}</h3>
+				<p><img class="img-rounded" display: block max-width: 100% height: auto  src={{ post.mainpict.url }}></p>
+				<h3 class="ctitle">{{ post.title }}</h3>
 				<p>
-					{{ single_posts.text|safe }}
+					{{ post.text|safe }}
 				</p>
-				{% endfor %}
 			</div><!--/col-lg-8 -->
-				
-	 	</div><!--/row -->
-	 </div><!--/container -->
 
-
+			<hr>
+			<a class="btn btn-default" href="{% url 'blog:add_comment_to_post' pk=post.pk %}">Add comment</a>
+			{% for comment in post.comments.all %}
+				<div class="comment">
+					<div class="date">{{ comment.created_date }}</div>
+					<strong>{{ comment.author }}</strong>
+					<p>{{ comment.text|linebreaks }}</p>
+				</div>
+				{% empty %}
+					<p>No comments here yet :(</p>
+			{% endfor %}
+		</div><!--/row -->
+	</div><!--/container -->
 {% endblock %}

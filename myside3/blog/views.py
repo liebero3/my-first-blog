@@ -13,6 +13,8 @@ from django.template import RequestContext
 #from birthdayreminder.models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, get_object_or_404
+from .forms import CommentForm
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import Group
 
@@ -39,9 +41,9 @@ def post_list9c(request):
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 @login_required(login_url='/login/')
-def post_detail(request, digit):
-    single_post = Post.objects.filter(id=digit)
-    return render(request, 'blog/post_detail.html', {'single_post': single_post})
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post': post})
 
 def show_homepage(request):
     return render(request, 'blog/index.html')
@@ -58,3 +60,17 @@ def login_user(request):
             login(request, user)
             return HttpResponseRedirect('..')
     return render(request, 'blog/login.html')
+
+@login_required(login_url='/login/')
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect(post_detail, pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'blog/add_comment_to_post.html', {'form': form})
