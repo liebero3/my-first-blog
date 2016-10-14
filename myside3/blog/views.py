@@ -20,8 +20,24 @@ from django.contrib.auth.models import Group
 #@user_passes_test(lambda u: Group.objects.get(name='EFPHGK2') in u.groups.all())
 @login_required(login_url='/login/')
 def post_list(request):
-    posts = Post.objects.filter(pdate__lte=timezone.now())#.order_by('published_date')
+    posts = Post.objects.filter(kurs__name='EFGK2PH1617').filter(pdate__lte=timezone.now())#.order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
+
+@login_required(login_url='/login/')
+def post_list8a(request):
+    posts = Post.objects.filter(kurs__name='8aPH1617').filter(pdate__lte=timezone.now())#.order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+@login_required(login_url='/login/')
+def post_list8b(request):
+    posts = Post.objects.filter(kurs__name='8bPH1617').filter(pdate__lte=timezone.now())#.order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+@login_required(login_url='/login/')
+def post_list9c(request):
+    posts = Post.objects.filter(kurs__name='9cM1617').filter(pdate__lte=timezone.now())#.order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
 @login_required(login_url='/login/')
 def post_detail(request, digit):
     single_post = Post.objects.filter(id=digit)
