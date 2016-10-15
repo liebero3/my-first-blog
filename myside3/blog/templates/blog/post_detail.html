@@ -5,7 +5,7 @@
 	 ***************************************************************************************************************** -->
 
 	 <div class="container mtb">
-		<div class="row">
+		<p class="row">
 			<!-- SIDEBAR -->
 			<div class="col-lg-4 col-lg-push-8">
 				<h4>Search</h4>
@@ -25,19 +25,15 @@
 				<p>
 					{{ post.text|safe }}
 				</p>
+				<hr>
+				<a class="btn btn-default" href="{% url 'blog:add_comment_to_post' pk=post.pk %}">Add comment</a>
+				{% for comment in post.comments.all %}
+						<p><csmall2>{{ comment.created_date }}</csmall2> | <csmall>{{ comment.author }}</csmall></p>
+						<p><csmall>{{ comment.text|linebreaks }}</csmall></p>
+					{% empty %}
+						<p>No comments here yet :(</p>
+				{% endfor %}
 			</div><!--/col-lg-8 -->
-
-			<hr>
-			<a class="btn btn-default" href="{% url 'blog:add_comment_to_post' pk=post.pk %}">Add comment</a>
-			{% for comment in post.comments.all %}
-				<div class="comment">
-					<div class="date">{{ comment.created_date }}</div>
-					<strong>{{ comment.author }}</strong>
-					<p>{{ comment.text|linebreaks }}</p>
-				</div>
-				{% empty %}
-					<p>No comments here yet :(</p>
-			{% endfor %}
 		</div><!--/row -->
 	</div><!--/container -->
 {% endblock %}
