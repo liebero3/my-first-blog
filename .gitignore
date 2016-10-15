@@ -4,3 +4,9 @@ venv
 db.sqlite3
 /static
 .DS_Store
+*.xlsx
+*.csv
+*.txt
+/media
+/theme
+

@@ -39,7 +39,7 @@
 				<p><img class="img-rounded" display: block max-width: 100% height: auto  src={{ post.mainpict.url }}></p>
 				<a href={% url 'blog:post_detail' pk=post.pk %}><h3 class="ctitle">{{ post.title }}</h3></a>
 				<p><csmall>{{ post.pdate }}</csmall> | <csmall>{{ post.author }}</csmall> | <csmall2>Comments: {{ post.comments.count }}</csmall2></p>
-				{{ post.text|safe }} 
+				<p>{{ post.text|safe }}</p>
 				<p><a href={% url 'blog:post_detail' pk=post.pk %}>[Read More]</a></p>
 				<div class="hline"></div>
 				<div class="spacing"></div>

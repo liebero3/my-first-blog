@@ -16,26 +16,29 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, get_object_or_404
 from .forms import CommentForm
 from django.contrib.auth.decorators import user_passes_test
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 
 # Create your views here.
-#@user_passes_test(lambda u: Group.objects.get(name='EFPHGK2') in u.groups.all())
-@login_required(login_url='/login/')
+@user_passes_test(lambda u: Group.objects.get(name='EFGK2PH1617') in u.groups.all(), login_url='/login/')
+#@login_required(login_url='/login/')
 def post_list(request):
     posts = Post.objects.filter(kurs__name='EFGK2PH1617').filter(pdate__lte=timezone.now())#.order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
-@login_required(login_url='/login/')
+@user_passes_test(lambda u: Group.objects.get(name='8aPH1617') in u.groups.all(), login_url='/login/')
+#@login_required(login_url='/login/')
 def post_list8a(request):
     posts = Post.objects.filter(kurs__name='8aPH1617').filter(pdate__lte=timezone.now())#.order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
-@login_required(login_url='/login/')
+@user_passes_test(lambda u: Group.objects.get(name='8bPH1617') in u.groups.all(), login_url='/login/')
+#@login_required(login_url='/login/')
 def post_list8b(request):
     posts = Post.objects.filter(kurs__name='8bPH1617').filter(pdate__lte=timezone.now())#.order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
-@login_required(login_url='/login/')
+@user_passes_test(lambda u: Group.objects.get(name='9cM1617') in u.groups.all(), login_url='/login/')
+#@login_required(login_url='/login/')
 def post_list9c(request):
     posts = Post.objects.filter(kurs__name='9cM1617').filter(pdate__lte=timezone.now())#.order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
