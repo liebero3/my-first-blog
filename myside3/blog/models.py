@@ -10,7 +10,6 @@ class Post(models.Model):
     cdate = models.DateTimeField(default=timezone.now)
     pdate = models.DateTimeField(blank=True, null=True)
     mainpict = models.FileField(upload_to='uploads/', default='uploads/Pxjq6.jpg')
- #   kurs = models.CharField(max_length=15, default='1617PHEFGK2')
     kurs = models.ForeignKey('auth.Group')
 
     def publish(self):
