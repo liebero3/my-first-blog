@@ -6,6 +6,7 @@ from ckeditor.fields import RichTextField
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
+    abstract = models.TextField(max_length=300, default='...')
     text = RichTextField()
     cdate = models.DateTimeField(default=timezone.now)
     pdate = models.DateTimeField(blank=True, null=True)
