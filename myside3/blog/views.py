@@ -8,11 +8,10 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
 from django.http import *
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import redirect
 from django.template import RequestContext
-#from birthdayreminder.models import *
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, views
 from django.shortcuts import render, get_object_or_404
 from .forms import CommentForm
 from django.contrib.auth.decorators import user_passes_test
@@ -61,8 +60,30 @@ def login_user(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect('..')
+            return HttpResponseRedirect('/')
     return render(request, 'blog/login.html')
+
+def change_password(request):
+    password_old = password_new1 = password_new2 = ''
+    if request.user.is_authenticated():
+        if request.POST:
+            password_old = request.POST['password_old']
+            password_new1 = request.POST['password_new1']
+            password_new2 = request.POST['password_new2']
+
+            if request.user.check_password(password_old) and password_new1 == password_new2:
+                request.user.set_password(password_new1)
+                request.user.save()
+                return render(request, 'blog/change_password_done.html')
+            else:
+                return render(request, 'blog/change_password.html')
+        else:
+            return render(request, 'blog/change_password.html')
+    else:
+        return render(request, 'blog/login.html')
+
+def change_password_done(request):
+    return render(request, 'blog/change_password_done.html')
 
 @login_required(login_url='/login/')
 def add_comment_to_post(request, pk):
