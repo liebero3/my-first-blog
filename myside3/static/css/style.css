@@ -204,11 +204,45 @@ a:focus {
 	SITE WRAPS
 ################################################################# */
 
+#frontpage {
+	background-color: #384452;
+	background: url(../img/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    min-height: 550px;
+    padding-bottom: 0px;
+    padding-top: 100px;
+}
+
 #headerwrap {
-	background-color: #00b3fe;
+	background-color: #384452;
+	background: url(../img/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    min-height: 550px;
+    padding-bottom: 0px;
+    padding-top: 100px;
+}
+#headerwrapold {
+    background-color: #384452;
 	min-height: 550px;
 	padding-top: 100px;
 	padding-bottom: 0px;
+	margin: 0;
 }
 
 #headerwrap h3 {
@@ -296,13 +330,10 @@ a:focus {
 
 /* Testimonials Wrap */
 #twrap {
-	background: url(../img/t-back.jpg) no-repeat center top;
+	background: url(../img/background.png) no-repeat center center fixed;
 	margin-top: 0px;
-	padding-top:60px;
-	text-align:center;
-	background-attachment: relative;
-	background-position: center center;
-	min-height: 450px;
+	padding-top:100px;
+	min-height: 550px;
 	width: 100%;
 	
     -webkit-background-size: 100%;
