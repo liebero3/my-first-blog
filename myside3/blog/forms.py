@@ -1,4 +1,5 @@
 from django import forms
+from ckeditor.fields import RichTextField
 from .models import Comment
 
 
