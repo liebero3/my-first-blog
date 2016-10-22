@@ -6,11 +6,14 @@ from ckeditor.fields import RichTextField
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
-    abstract = models.TextField(max_length=300, default='...')
+    abstract = models.TextField(max_length=300)
     text = RichTextField()
     cdate = models.DateTimeField(default=timezone.now)
     pdate = models.DateTimeField(blank=True, null=True)
     mainpict = models.FileField(upload_to='uploads/', default='uploads/Pxjq6.jpg')
+    atachement1 = models.FileField(upload_to='uploads/',blank=True, null=True)
+    atachement2 = models.FileField(upload_to='uploads/',blank=True, null=True)
+    atachement3 = models.FileField(upload_to='uploads/',blank=True, null=True)
     kurs = models.ForeignKey('auth.Group')
 
     def publish(self):

@@ -2,7 +2,7 @@
 {% block content %}
 
 	<div class="container mtb" style="	margin-bottom: 10px">
-		<div class="row" style="background: white;">
+		<div class="row" style="background: white">
 			<!-- SIDEBAR -->
 			<div class="col-lg-4 col-lg-push-8">
 				<h4>Search</h4>
@@ -17,19 +17,36 @@
 
 	 <! -- BLOG POSTS LIST -->
 			<div class="col-lg-8 col-lg-pull-4">
-				<p><img class="img-rounded" display: block max-width: 100% height: auto  src={{ post.mainpict.url }}></p>
-				<h3 class="ctitle">{{ post.title }}</h3>
-				<p>
-					{{ post.text|safe }}
-				</p>
-				<hr>
-				<a class="btn btn-default" href="{% url 'blog:add_comment_to_post' pk=post.pk %}">Add comment</a>
-				{% for comment in post.comments.all %}
-						<p><csmall2>{{ comment.created_date }}</csmall2> | <csmall>{{ comment.author }}</csmall></p>
-						<p><csmall>{{ comment.text|linebreaks }}</csmall></p>
-					{% empty %}
-						<p>No comments here yet :(</p>
-				{% endfor %}
+				<div class="panel panel-default">
+					<div class="panel-footer">
+						<p><img class="img-rounded" display: block max-width: 100% height: auto  src={{ post.mainpict.url }}></p>
+						<h3 class="ctitle">{{ post.title }}</h3>
+						<p>
+							{{ post.text|safe }}
+						</p>
+						<p>
+						{% if post.atachement1 %}
+							<a href="{{ post.atachement1.url }}">Anhang 1</a>
+						{% endif %}
+						</p>
+						<p>
+						{% if post.atachement2 %}
+							<a href="{{ post.atachement2.url }}">Anhang 2</a>
+						{% endif %}
+						</p>
+						{% if post.atachement3 %}
+							<a href="{{ post.atachement3.url }}">Anhang 3</a>
+						{% endif %}
+						<hr>
+						<a class="btn btn-default" href="{% url 'blog:add_comment_to_post' pk=post.pk %}">Add comment</a>
+						{% for comment in post.comments.all %}
+								<p><csmall2>{{ comment.created_date }}</csmall2> | <csmall>{{ comment.author }}</csmall></p>
+								<p><csmall>{{ comment.text|linebreaks }}</csmall></p>
+							{% empty %}
+								<p>No comments here yet :(</p>
+						{% endfor %}
+					</div>
+				</div>
 			</div><!--/col-lg-8 -->
 		</div><!--/row -->
 	</div><!--/container -->
