@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from .secret import blub
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'zfjkl8+^=m7m92haw8j%wd!ew-qfn%aa^n(3go!28bsp^!=$=)'
+SECRET_KEY = blub
+#'zfjkl8+^=m7m92haw8j%wd!ew-qfn%aa^n(3go!28bsp^!=$=)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

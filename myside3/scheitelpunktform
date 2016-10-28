@@ -1,0 +1,21 @@
+from random import randint as rnd
+
+def create_rnd_params():
+    a=rnd(-15,15)/2.
+    while a==0:
+        a = rnd(-15, 15) / 2.
+    d=rnd(-7,7)
+    e=rnd(-10,10)
+    b=-a*d*2
+    c=a*d**2+e
+    params=[a,b,c,d,e]
+    return params
+
+print("Wie viele Funktionen sollen erstellt werden?")
+anzahl = int(input("Wie viele Funktionen sollen erstellt werden? "))
+
+with open("to_insert.txt","w") as file:
+    for i in range(0,anzahl):
+        params = create_rnd_params()
+        print("{}x^2+{}x+{} = {}(x-({}))^2+{}\n".format(params[0],params[1],params[2],params[0],params[3],params[4]))
+        file.write("\\item ${}x^2+{}x+{} = {}(x-({}))^2+{}$ \n".format(params[0],params[1],params[2],params[0],params[3],params[4]))
