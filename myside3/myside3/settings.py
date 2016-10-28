@@ -25,7 +25,7 @@ SECRET_KEY = blub
 #'zfjkl8+^=m7m92haw8j%wd!ew-qfn%aa^n(3go!28bsp^!=$=)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
