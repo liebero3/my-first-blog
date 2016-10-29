@@ -87,7 +87,8 @@
 		 			<h4>Kontakt/Disclaimer</h4>
 		 			<div class="hline-w"></div>
                     <p>
-                        <a href="mailto:lieber@hhgonline.de">Till Lieber, lieber@hhgonline.de</a>
+                        {% load email_obfuscator %}
+                        {{ 'lieber@hhgonline.de'|obfuscate_mailto }}
                     </p>
 		 		</div>
 		 	

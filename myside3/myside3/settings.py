@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'ckeditor',
     'ckeditor_uploader',
     'django_mathjax',
+    'email_obfuscator',
 )
 
 MIDDLEWARE_CLASSES = (
