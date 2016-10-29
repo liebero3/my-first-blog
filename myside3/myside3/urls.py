@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls), name='admin'),
 #    url(r'', include('index.html')),
     url(r'', include('blog.urls')),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+#    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 if settings.DEBUG:

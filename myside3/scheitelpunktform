@@ -5,17 +5,36 @@ def create_rnd_params():
     while a==0:
         a = rnd(-15, 15) / 2.
     d=rnd(-7,7)
-    e=rnd(-10,10)
+    while d==0:
+        d=rnd(-7,7)
+    e=rnd(-20,20)
     b=-a*d*2
     c=a*d**2+e
+
+    a='{0:g}'.format(a)
+    if b >= 0:
+        b ='+' + '{0:g}'.format(b)
+    else:
+        b = '{0:g}'.format(b)
+    if c >= 0:
+        c = '+' + '{0:g}'.format(c)
+    else:
+        c = '{0:g}'.format(c)
+    if d >= 0:
+        d = '+' + '{0:g}'.format(d)
+    else:
+        d = '{0:g}'.format(d)
+    if e >= 0:
+        e = '+' + '{0:g}'.format(e)
+    else:
+        e = '{0:g}'.format(e)
     params=[a,b,c,d,e]
     return params
 
-print("Wie viele Funktionen sollen erstellt werden?")
 anzahl = int(input("Wie viele Funktionen sollen erstellt werden? "))
 
 with open("to_insert.txt","w") as file:
     for i in range(0,anzahl):
         params = create_rnd_params()
-        print("{}x^2+{}x+{} = {}(x-({}))^2+{}\n".format(params[0],params[1],params[2],params[0],params[3],params[4]))
-        file.write("\\item ${}x^2+{}x+{} = {}(x-({}))^2+{}$ \n".format(params[0],params[1],params[2],params[0],params[3],params[4]))
+#        print("{}x^2+{}x+{} = {}(x-({}))^2+{}\n".format(params[0],params[1],params[2],params[0],params[3],params[4]))
+        file.write("\\item ${}x^2{}x{} = {}(x{})^2{}$ \n".format(params[0],params[1],params[2],params[0],params[3],params[4]))
