@@ -51,6 +51,9 @@ def post_detail(request, pk):
 def show_homepage(request):
     return render(request, 'blog/index.html')
 
+def show_disclaimer(request):
+    return render(request, 'blog/disclaimer.html')
+
 def login_user(request):
     logout(request)
     username = password = ''

@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^blog/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
     url(r'^change_password/$', views.change_password, name='change_password'),
     url(r'^change_password_done/$', views.change_password_done, name='change_password_done'),
+    url(r'^disclaimer/$', views.show_disclaimer, name='disclaimer'),
 
 ]
